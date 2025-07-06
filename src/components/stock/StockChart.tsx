@@ -70,31 +70,58 @@ const StockChart: React.FC<StockChartProps> = ({ symbol }) => {
       setLoading(true);
       const { from, to } = getFromTo(selectedRange);
       try {
+        console.log(`Fetching chart data for ${symbol} from ${from} to ${to}`);
         const res = await fetch(
           `http://localhost:8080/api/trades/history?from=${from}&to=${to}&symbol=${symbol}`
         );
         if (res.ok) {
-          const data = await res.json();
-          const prices = (data.data || []).map((item: any) => ({
-            x: new Date(item.timestamp),
-            y: item.price
-          }));
-          setChartData({
-            datasets: [
-              {
-                label: `${symbol} Price`,
-                data: prices,
-                borderColor: '#2563eb',
-                backgroundColor: 'rgba(37,99,235,0.1)',
-                tension: 0.2,
-                pointRadius: 0
-              }
-            ]
-          });
+          const responseData = await res.json();
+          console.log('Chart API response:', responseData);
+          
+          // API 응답 구조: { success: true, data: { data: [...] } }
+          let chartDataArray = [];
+          if (responseData && responseData.success && responseData.data && responseData.data.data && Array.isArray(responseData.data.data)) {
+            chartDataArray = responseData.data.data;
+          } else if (responseData && responseData.data && Array.isArray(responseData.data)) {
+            chartDataArray = responseData.data;
+          } else {
+            console.warn('Unexpected chart data structure:', responseData);
+            setChartData(null);
+            return;
+          }
+          
+          console.log('Chart data array:', chartDataArray);
+          
+          if (chartDataArray.length > 0) {
+            const prices = chartDataArray.map((item: any) => ({
+              x: new Date(item.timestamp),
+              y: item.price
+            }));
+            
+            console.log('Processed prices:', prices);
+            
+            setChartData({
+              datasets: [
+                {
+                  label: `${symbol} Price`,
+                  data: prices,
+                  borderColor: '#2563eb',
+                  backgroundColor: 'rgba(37,99,235,0.1)',
+                  tension: 0.2,
+                  pointRadius: 0
+                }
+              ]
+            });
+          } else {
+            console.log('No chart data available');
+            setChartData(null);
+          }
         } else {
+          console.error('Chart API error:', res.status);
           setChartData(null);
         }
       } catch (e) {
+        console.error('Chart fetch error:', e);
         setChartData(null);
       } finally {
         setLoading(false);

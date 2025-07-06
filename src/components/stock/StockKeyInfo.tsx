@@ -59,60 +59,60 @@ const StockKeyInfo: React.FC<StockKeyInfoProps> = ({
   };
 
   return (
-    <div className="md:col-span-2 bg-white rounded-lg shadow p-6">
-      <h2 className="text-xl font-bold text-black mb-5 border-b-2 border-gray-300 pb-2">Key Information</h2>
+    <div className="md:col-span-2 bg-white/10 backdrop-blur-sm rounded-2xl shadow-lg p-6 border border-white/20">
+      <h2 className="text-xl font-bold text-white mb-5 border-b-2 border-white/20 pb-2">Key Information</h2>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         <div>
-          <p className="text-sm text-gray-500 font-medium mb-1">Market Cap</p>
-          <p className="text-lg text-black">{formatMarketCap(marketCapitalization)} {currency}</p>
+          <p className="text-sm text-gray-300 font-medium mb-1">Market Cap</p>
+          <p className="text-lg text-white">{formatMarketCap(marketCapitalization)} {currency}</p>
         </div>
         <div>
-          <p className="text-sm text-gray-500 font-medium mb-1">52 Week High</p>
-          <p className="text-lg text-black">{formatNumber(weekHigh52)} {currency}</p>
+          <p className="text-sm text-gray-300 font-medium mb-1">52 Week High</p>
+          <p className="text-lg text-white">{formatNumber(weekHigh52)} {currency}</p>
         </div>
         <div>
-          <p className="text-sm text-gray-500 font-medium mb-1">52 Week Low</p>
-          <p className="text-lg text-black">{formatNumber(weekLow52)} {currency}</p>
+          <p className="text-sm text-gray-300 font-medium mb-1">52 Week Low</p>
+          <p className="text-lg text-white">{formatNumber(weekLow52)} {currency}</p>
         </div>
         <div>
-          <p className="text-sm text-gray-500 font-medium mb-1">3M Avg. Volume</p>
-          <p className="text-lg text-black">{formatVolume(avgVolume)}</p>
+          <p className="text-sm text-gray-300 font-medium mb-1">3M Avg. Volume</p>
+          <p className="text-lg text-white">{formatVolume(avgVolume)}</p>
         </div>
         <div>
-          <p className="text-sm text-gray-500 font-medium mb-1">10D Avg. Volume</p>
-          <p className="text-lg text-black">{formatVolume(avgVolume10Day)}</p>
+          <p className="text-sm text-gray-300 font-medium mb-1">10D Avg. Volume</p>
+          <p className="text-lg text-white">{formatVolume(avgVolume10Day)}</p>
         </div>
         <div>
-          <p className="text-sm text-gray-500 font-medium mb-1">P/E Ratio</p>
-          <p className="text-lg text-black">{formatNumber(peRatio)}</p>
+          <p className="text-sm text-gray-300 font-medium mb-1">P/E Ratio</p>
+          <p className="text-lg text-white">{formatNumber(peRatio)}</p>
         </div>
         <div>
-          <p className="text-sm text-gray-500 font-medium mb-1">Price to Book</p>
-          <p className="text-lg text-black">{formatNumber(pb)}</p>
+          <p className="text-sm text-gray-300 font-medium mb-1">Price to Book</p>
+          <p className="text-lg text-white">{formatNumber(pb)}</p>
         </div>
         <div>
-          <p className="text-sm text-gray-500 font-medium mb-1">Price to Sales</p>
-          <p className="text-lg text-black">{formatNumber(priceToSales)}</p>
+          <p className="text-sm text-gray-300 font-medium mb-1">Price to Sales</p>
+          <p className="text-lg text-white">{formatNumber(priceToSales)}</p>
         </div>
         <div>
-          <p className="text-sm text-gray-500 font-medium mb-1">Dividend Yield</p>
-          <p className="text-lg text-black">{formatPercent(dividendYield)}</p>
+          <p className="text-sm text-gray-300 font-medium mb-1">Dividend Yield</p>
+          <p className="text-lg text-white">{formatPercent(dividendYield)}</p>
         </div>
         <div>
-          <p className="text-sm text-gray-500 font-medium mb-1">Beta</p>
-          <p className="text-lg text-black">{formatNumber(beta)}</p>
+          <p className="text-sm text-gray-300 font-medium mb-1">Beta</p>
+          <p className="text-lg text-white">{formatNumber(beta)}</p>
         </div>
         <div>
-          <p className="text-sm text-gray-500 font-medium mb-1">90 Day Volatility</p>
-          <p className="text-lg text-black">{formatPercent(volatility90Day)}</p>
+          <p className="text-sm text-gray-300 font-medium mb-1">90 Day Volatility</p>
+          <p className="text-lg text-white">{formatPercent(volatility90Day)}</p>
         </div>
         <div>
-          <p className="text-sm text-gray-500 font-medium mb-1">52 Week Return</p>
-          <p className="text-lg text-black">{formatPercent(weekPriceReturn52)}</p>
+          <p className="text-sm text-gray-300 font-medium mb-1">52 Week Return</p>
+          <p className="text-lg text-white">{formatPercent(weekPriceReturn52)}</p>
         </div>
         <div>
-          <p className="text-sm text-gray-500 font-medium mb-1">ROE</p>
-          <p className="text-lg text-black">{formatPercent(returnOnEquity)}</p>
+          <p className="text-sm text-gray-300 font-medium mb-1">ROE</p>
+          <p className="text-lg text-white">{formatPercent(returnOnEquity)}</p>
         </div>
       </div>
     </div>
